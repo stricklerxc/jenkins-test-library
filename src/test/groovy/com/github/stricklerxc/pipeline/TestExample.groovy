@@ -25,8 +25,15 @@ class TestExample extends BasePipelineTest {
 
     @Test
     void testGetClusterUrl() {
-        String result = example.getClusterUrl()
+        String result = example.getClusterUrl("nonprod", "default")
 
-        assertEquals("example.cluster.com", result)
+        assertEquals("nonprod.cluster.com", result)
+    }
+
+    @Test
+    void testGetProject() {
+        String result = example.getProject("nonprod", "non-default")
+
+        assertEquals("non-default", result)
     }
 }
